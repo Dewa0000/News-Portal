@@ -9,7 +9,7 @@ const Navbar = () => {
   function handleSearchItem(e){
      e.preventDefault();
      if(searchItem.trim()){
-        navigate(`/search?q=${searchItem.trim()} `)
+        navigate(`/search?q=${searchItem.trim()}`)
      setSearchItem("");
      }
      
