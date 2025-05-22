@@ -9,7 +9,7 @@ const Navbar = () => {
   function handleSearchItem(e){
      e.preventDefault();
      if(searchItem.trim()){
-        navigate(`/search?q = ${searchItem.trim()} `)
+        navigate(`/search?q=${searchItem.trim()} `)
      setSearchItem("");
      }
      
@@ -27,7 +27,7 @@ const Navbar = () => {
                 id="query"
                 value={searchItem}
                 name="q"
-                onChange={() => setSearchItem(e.target.value)}
+                onChange={(e) => setSearchItem(e.target.value)}
                 placeholder="Search..."
                 className="px-2 py-1 rounded text-black"
               />

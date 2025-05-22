@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-function searchResults(){
+function SearchResults(){
     const location = useLocation();
     const query = new URLSearchParams(location.search).get("q")
 
@@ -12,4 +12,4 @@ function searchResults(){
     )
 }
 
-export default searchResults;
+export default SearchResults;
