@@ -1,4 +1,4 @@
-// pages/SearchResults.jsx
+
 import { useLocation } from "react-router-dom";
 import useFetchNews from "../Hooks/UseFetchNews";
 import NewsCard from "../Components/NewsCard";
