@@ -88,7 +88,7 @@ const Blog = require("./Models/Article")
 
 const app = express();
 
-// Correct URI with encoded password and DB name
+
 const dbURI = "mongodb+srv://Dewa0000:Dewa%400000@news-portal.lviixrc.mongodb.net/newsportal?retryWrites=true&w=majority";
 
 // Connect to DB and start server
