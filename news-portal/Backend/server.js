@@ -84,6 +84,7 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
+const Blog = require("./Models/Article")
 
 const app = express();
 
@@ -97,6 +98,30 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     app.listen(3000, () => console.log("Server running on port 3000"));
   })
   .catch(err => console.error("MongoDB connection error:", err.message));
+
+  app.get("/add-blog", (req,res) => {
+       const blog = new Blog({
+        title:"Bhilai Portal",
+        snippet: "Local News",
+        body: "Great Local News"
+       })
+
+       blog.save()
+       .then((result) => {
+        res.send(result)
+       }).catch((err) => {
+        console.log(err.message)
+       }) //Async Task
+  })
+
+  app.get("/all-blogs", (req,res) => {
+    Blog.find()
+    .then((result) => {
+      res.send(result)
+    }).catch((err) => {
+      console.log(err.message)
+    })
+  }) 
 
 // Middleware to log requests
 app.use((req, res, next) => {
