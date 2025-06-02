@@ -84,10 +84,11 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-
+const cors = require("cors");
 const blogsRoutes = require("./Routes/UserRoutes")
 
 const app = express();
+app.use(cors());
 
 
 const dbURI = "mongodb+srv://Dewa0000:Dewa%400000@news-portal.lviixrc.mongodb.net/newsportal?retryWrites=true&w=majority";

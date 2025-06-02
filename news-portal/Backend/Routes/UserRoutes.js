@@ -36,6 +36,7 @@ router.get("/blogs", (req,res) => {
   Blog.find()
   .then((result) => {
     res.json({title: "All Blogs", blog: result})
+    console.log(result)
   }).catch((err) => {
     console.log(err.message)
   })
