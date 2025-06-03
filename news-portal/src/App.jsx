@@ -7,6 +7,7 @@ import Navbar from "./Components/NavBar";
 import SearchResults from "./Components/searchResults";
 import "./App.css";
 import { useEffect, useState } from "react";
+import AddBlog from "./Pages/Addblog";
 
 function App() {
   const [blogs, setBlogs] = useState([]);
@@ -32,6 +33,7 @@ function App() {
             <Route path="/tech" element={<Tech />} />
             <Route path="/startups" element={<Startups />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/add-blog" element={<AddBlog/>}></Route>
           </Routes>
 
           <div className="p-4">

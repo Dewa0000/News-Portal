@@ -110,7 +110,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(blogsRoutes)
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(blogsRoutes);
+app.post("/add-blog", (req,res) => {
+  console.log(req.body);
+})
 
 app.get("/", (req, res) => {
   res.sendFile("./index1.html", { root: __dirname });

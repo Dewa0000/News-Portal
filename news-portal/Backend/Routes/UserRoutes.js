@@ -2,20 +2,18 @@ const express = require("express");
 const Blog = require("../Models/Article")
 const router = express.Router();
 
-router.get("/add-blog", (req,res) => {
-       const blog = new Blog({
-        title:"Bhilai Portal",
-        snippet: "Local News",
-        body: "Great Local News"
-       })
+router.post("/add-blog", async (req, res) => {
+  const { title, snippet, body } = req.body;
 
-       blog.save()
-       .then((result) => {
-        res.send(result)
-       }).catch((err) => {
-        console.log(err.message)
-       }) //Async Task
-  })
+  try {
+    const blog = new Blog({ title, snippet, body });
+    const savedBlog = await blog.save();
+    res.status(201).json(savedBlog);
+  } catch (error) {
+    console.error("Error saving blog:", error.message);
+    res.status(500).json({ error: "Failed to save blog" });
+  }
+});
 
  
 router.get("/blogs/:id", (req, res) =>
