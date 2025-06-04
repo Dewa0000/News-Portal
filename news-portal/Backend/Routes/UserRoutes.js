@@ -27,6 +27,24 @@ router.get("/blogs/:id", (req, res) =>
   })
 })
 
+// DELETE a blog by ID
+router.delete("/blogs/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const deletedBlog = await Blog.findByIdAndDelete(id);
+
+    if (!deletedBlog) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+
+    res.status(200).json({ message: "Blog deleted successfully", blog: deletedBlog });
+  } catch (error) {
+    console.error("Error deleting blog:", error.message);
+    res.status(500).json({ error: "Failed to delete blog" });
+  }
+});
+
 // Serve static HTML files
   
 

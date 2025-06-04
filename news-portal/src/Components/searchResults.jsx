@@ -1,33 +1,48 @@
-
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import useFetchNews from "../Hooks/UseFetchNews";
 import NewsCard from "../Components/NewsCard";
 
 const SearchResults = () => {
-  const { search } = useLocation(); // to access ?q=...
+  const { search } = useLocation();
   const query = new URLSearchParams(search).get("q")?.toLowerCase() || "";
 
-  const { news, loading } = useFetchNews("general");
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const filteredNews = news.filter(article =>
-    article.title.toLowerCase().includes(query)
+  useEffect(() => {
+    fetch("http://localhost:3000/blogs")
+      .then(res => res.json())
+      .then(data => {
+        setBlogs(data.blog);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Error fetching blogs:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  const filteredBlogs = blogs.filter(blog =>
+    blog?.title?.toLowerCase().includes(query)
   );
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Search Results for: <span className="text-blue-700">"{query}"</span></h2>
+      <h2 className="text-2xl font-semibold mb-4">
+        Search Results for: <span className="text-blue-700">"{query}"</span>
+      </h2>
+
       {loading ? (
         <p>Loading...</p>
-      ) : filteredNews.length === 0 ? (
+      ) : filteredBlogs.length === 0 ? (
         <p>No results found.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {filteredNews.map((article, index) => (
+          {filteredBlogs.map(blog => (
             <NewsCard
-              key={index}
-              title={article.title}
-              description={article.description}
-              link={article.url}
+              key={blog._id}
+              blog={blog}
+              onDelete={() => {}} // If delete is not needed, remove this
             />
           ))}
         </div>
