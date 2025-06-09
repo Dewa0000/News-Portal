@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import Tech from "./Pages/Tech";
 import Startups from "./Pages/Startups";
 import Footer from "./Components/Footer";
-import Navbar from "./Components/NavBar";
+import Navbar from "./Components/Navbar";
 import SearchResults from "./Components/searchResults";
 import BlogDetails from "./Pages/Details";
 import "./App.css";
