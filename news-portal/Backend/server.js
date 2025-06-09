@@ -85,11 +85,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
+
+
 const blogsRoutes = require("./Routes/UserRoutes")
 
 const app = express();
-app.use(cors());
 
+app.use(cors({
+  origin: "https://news-portal-f.onrender.com"
+}));
 
 const dbURI = "mongodb+srv://Dewa0000:Dewa%400000@news-portal.lviixrc.mongodb.net/newsportal?retryWrites=true&w=majority";
 
