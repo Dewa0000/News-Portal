@@ -10,7 +10,7 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/blogs")
+    fetch("https://news-portal-jzcd.onrender.com/blogs")
       .then(res => res.json())
       .then(data => {
         setBlogs(data.blog);
