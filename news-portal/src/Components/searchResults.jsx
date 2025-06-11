@@ -10,10 +10,10 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://news-portal-jzcd.onrender.com";
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://news-portal-jzcd.onrender.com";
 
 
-    fetch("https://news-portal-jzcd.onrender.com/blogs")
+    fetch(`${backendUrl}/blogs`)
       .then(res => res.json())
       .then(data => {
         setBlogs(data.blog);
