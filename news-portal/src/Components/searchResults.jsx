@@ -10,7 +10,7 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://your-render-backend-url.onrender.com";
     fetch(`${backendUrl}/blogs`)
       .then(res => res.json())
       .then(data => {

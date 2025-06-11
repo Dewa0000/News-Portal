@@ -4,7 +4,8 @@ const useFetchNews = (category) => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+      
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://your-render-backend-url.onrender.com";
 
       try {
         const response = await fetch(`${backendUrl}/blogs`);
