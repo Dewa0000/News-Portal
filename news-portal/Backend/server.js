@@ -15,7 +15,7 @@
 //            console.log(req.body);
 //            var counter = req.body.counter;
 
-    //    var counter = req.query.counter;
+//    var counter = req.query.counter;
 //        res.send(counter);
 // }
 
@@ -34,7 +34,7 @@
 
 // app.get("/", htmlPage)
 
-  
+
 // function started(){
 //     console.log("Express running")
 // }
@@ -102,11 +102,14 @@ const dbURI = "mongodb+srv://Dewa0000:Dewa%400000@news-portal.lviixrc.mongodb.ne
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB Atlas");
-    app.listen(3000, () => console.log("Server running on port 3000"));
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+
   })
   .catch(err => console.error("MongoDB connection error:", err.message));
 
-  // Middleware to log requests
+// Middleware to log requests
 app.use((req, res, next) => {
   console.log("Request received");
   console.log("Host:", req.hostname);
@@ -116,10 +119,10 @@ app.use((req, res, next) => {
 });
 
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(blogsRoutes);
-app.post("/add-blog", (req,res) => {
+app.post("/add-blog", (req, res) => {
   console.log(req.body);
 })
 
@@ -130,7 +133,7 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
   res.sendFile("./about.html", { root: __dirname });
 });
-  
+
 // 404 fallback (optional)
 app.use((req, res) => {
   res.status(404).sendFile("./404.html", { root: __dirname });
