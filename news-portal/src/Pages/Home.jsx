@@ -8,7 +8,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/blogs")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs`)
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.blog);
@@ -21,7 +21,7 @@ const Home = () => {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/blogs/${id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
