@@ -92,9 +92,7 @@ const blogsRoutes = require("./Routes/UserRoutes")
 
 const app = express();
 
-app.use(cors({
-  origin: "https://news-portal-jzcd.onrender.com"
-}));
+app.use(cors());
 
 const dbURI = "mongodb+srv://Dewa0000:Dewa%400000@news-portal.lviixrc.mongodb.net/newsportal?retryWrites=true&w=majority";
 
