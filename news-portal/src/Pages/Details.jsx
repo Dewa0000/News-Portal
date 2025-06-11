@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -11,7 +10,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/blogs/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs/${id}`);
         const data = await res.json();
         setBlog(data.blog);
       } catch (err) {
@@ -41,8 +40,6 @@ const BlogDetails = () => {
           <p className="text-red-600">Blog not found.</p>
         )}
       </main>
-
-    
     </>
   );
 };
