@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-
 const useFetchNews = (category) => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNews = async () => {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
       try {
-        const response = await fetch("https://news-portal-jzcd.onrender.com/blogs");
+        const response = await fetch(`${backendUrl}/blogs`);
         const data = await response.json();
         console.log(data);
         setNews(data.blog);
@@ -22,5 +22,3 @@ const useFetchNews = (category) => {
 
   return { news, loading };
 };
-
-export default useFetchNews;
