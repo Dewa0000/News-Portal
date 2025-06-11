@@ -7,7 +7,7 @@ const useFetchNews = (category) => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch("http://localhost:3000/blogs");
+        const response = await fetch("https://news-portal-jzcd.onrender.com/blogs");
         const data = await response.json();
         console.log(data);
         setNews(data.blog);
