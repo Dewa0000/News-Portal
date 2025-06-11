@@ -10,10 +10,10 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://news-portal-jzcd.onrender.com";
+    // const backendUrl = process.env.REACT_APP_BACKEND_URL || "https://news-portal-jzcd.onrender.com";
 
 
-    fetch(`${backendUrl}/blogs`)
+    fetch("https://news-portal-jzcd.onrender.com/blogs")
       .then(res => res.json())
       .then(data => {
         setBlogs(data.blog);
@@ -45,7 +45,7 @@ const SearchResults = () => {
             <NewsCard
               key={blog._id}
               blog={blog}
-              onDelete={() => {}} // If delete is not needed, remove this
+              onDelete={() => { }} // If delete is not needed, remove this
             />
           ))}
         </div>
