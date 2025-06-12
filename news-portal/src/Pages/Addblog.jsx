@@ -11,7 +11,7 @@ function AddBlog() {
     setSuccess(false);
 
     try {
-      const response = await fetch("http://localhost:3000/add-blog", {
+      const response = await fetch("https://news-portal-jzcd.onrender.com/add-blog", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
