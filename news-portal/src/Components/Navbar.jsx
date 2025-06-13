@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 text-white p-4 shadow-lg">
       <div className="container mx-auto flex justify-between">
-        <Link to="/" className="text-xl font-bold"><img src={logo} className="h-10 w-auto object-contain mr-4 rounded-lg"></img><span>H&H</span></Link>
+        <Link to="/" className="text-xl font-bold"><img src={logo} className="h-10 w-auto object-contain mr-4 rounded-lg"></img>H&H</Link>
         <div  className="flex items-center space-x-4">
           <div className="searchContainer flex">
             <form onSubmit={handleSearchItem} role="search" id="form" className="flex items-center">
@@ -37,7 +37,7 @@ const Navbar = () => {
           </div>
           <Link to="/" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Home</Link>
           <Link to="/tech" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Tech</Link>
-          <Link to="/startups" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Jobs</Link>
+          <Link to="/jobs" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Jobs</Link>
           <Link to="/books" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Books</Link>
           <Link to="/add-blog" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Add Blog</Link>
         </div>
