@@ -43,7 +43,7 @@ const SearchResults = () => {
             <NewsCard
               key={blog._id}
               blog={blog}
-              onDelete={() => { }} // If delete is not needed, remove this
+            
             />
           ))}
         </div>
