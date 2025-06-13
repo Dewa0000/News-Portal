@@ -35,10 +35,11 @@ const Navbar = () => {
               <button type="submit" className="ml-2 px-3 py-1 bg-white text-blue-700 rounded">Go</button>
             </form>
           </div>
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/tech" className="hover:underline">Tech</Link>
-          <Link to="/startups" className="hover:underline">Startups</Link>
-          <Link to="/add-blog" className="hover:underline">Add Blog</Link>
+          <Link to="/" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Home</Link>
+          <Link to="/tech" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Tech</Link>
+          <Link to="/startups" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Jobs</Link>
+          <Link to="/books" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Books</Link>
+          <Link to="/add-blog" className="text-slate-700 hover:text-primary-600 text-base font-medium leading-normal transition-colors">Add Blog</Link>
         </div>
       </div>
     </nav>
