@@ -8,7 +8,7 @@ const Header = () => {
         
         {/* Text Section */}
         <div className="text-left">
-          <h1 className="text-4xl font-inter font-bold tracking-wide">Hustle & Hiccups</h1>
+          <h1 className="text-4xl font-inter tracking-wide">Hustle & Hiccups</h1>
           <p className="text-md text-gray-300 mt-1 italic">Your daily dose of tech & startup insights</p>
         </div>
       </header>
