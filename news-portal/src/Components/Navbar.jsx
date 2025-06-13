@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 text-white p-4 shadow-lg">
       <div className="container mx-auto flex justify-between">
-        <Link to="/" className="text-xl font-bold">H&H</Link>
+        <Link to="/" className="text-xl font-bold"><img src={logo} className="h-10 w-auto"></img><span>H&H</span></Link>
         <div  className="flex items-center space-x-4">
           <div className="searchContainer flex">
             <form onSubmit={handleSearchItem} role="search" id="form" className="flex items-center">
