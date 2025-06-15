@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NewsCard = ({ blog, onDelete }) => {
+const NewsCard = ({ blog, }) => {
   if (!blog) return null;
 
   const { _id, title, snippet } = blog;
@@ -15,14 +15,7 @@ const NewsCard = ({ blog, onDelete }) => {
           Read More →
         </Link>
         
-          <button
-            onClick={() => onDelete(_id)}
-            className="text-red-500 text-sm border border-red-500 px-2 py-1 rounded hover:bg-red-500 hover:text-white"
-          >
-            Delete
-          </button>
         
-
       </div>
     </div>
   );
