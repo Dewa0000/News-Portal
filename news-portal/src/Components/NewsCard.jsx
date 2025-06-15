@@ -15,13 +15,13 @@ const NewsCard = ({ blog, onDelete }) => {
           Read More →
         </Link>
         {onDelete && (
-  <button
-    onClick={() => onDelete(_id)}
-    className="text-red-500 text-sm border border-red-500 px-2 py-1 rounded hover:bg-red-500 hover:text-white"
-  >
-    Delete
-  </button>
-)}
+          <button
+            onClick={() => onDelete(_id)}
+            className="text-red-500 text-sm border border-red-500 px-2 py-1 rounded hover:bg-red-500 hover:text-white"
+          >
+            Delete
+          </button>
+        )}
 
       </div>
     </div>
