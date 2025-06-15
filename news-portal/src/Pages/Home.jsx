@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../Components/Header";
-import Adbanner from "../Components/Adbanner";
+
 import NewsCard from "../Components/NewsCard";
 
 const Home = () => {
@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Adbanner />
+    
       <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
         {loading ? (
           <p>Loading...</p>
