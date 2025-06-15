@@ -3,10 +3,10 @@ const Blog = require("../Models/Article")
 const router = express.Router();
 
 router.post("/add-blog", async (req, res) => {
-  const { title, snippet, body } = req.body;
+  const { title, snippet, body, category } = req.body;
 
   try {
-    const blog = new Blog({ title, snippet, body });
+    const blog = new Blog({ title, snippet, body, category });
     const savedBlog = await blog.save();
     res.status(201).json(savedBlog);
   } catch (error) {
@@ -51,7 +51,7 @@ router.delete("/blogs/:id", async (req, res) => {
 router.get("/blogs", (req,res) => {
   Blog.find()
   .then((result) => {
-    res.json({title: "All Blogs", blog: result})
+    res.json({blog: result})
     console.log(result)
   }).catch((err) => {
     console.log(err.message)

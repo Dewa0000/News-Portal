@@ -17,7 +17,7 @@ function AddBlog() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title, snippet, body }),
+        body: JSON.stringify({ title, snippet, body, category }),
       });
 
       if (response.ok) {
