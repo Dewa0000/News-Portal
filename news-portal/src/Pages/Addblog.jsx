@@ -4,6 +4,7 @@ function AddBlog() {
   const [title, setTitle] = useState("");
   const [snippet, setSnippet] = useState("");
   const [body, setBody] = useState("");
+  const [category, setCategory] = useState("");
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -23,6 +24,7 @@ function AddBlog() {
         setTitle("");
         setSnippet("");
         setBody("");
+        setCategory("");
         setSuccess(true);
       } else {
         throw new Error("Blog creation failed");
@@ -63,6 +65,12 @@ function AddBlog() {
           onChange={(e) => setBody(e.target.value)}
           required
         />
+        <input type="text"
+         placeholder="Category"
+         className="w-full p-2 border border-gray-300 rounded"
+         value={category}
+         onChange={(e) => setCategory(e.target.value)}
+         required/>
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
