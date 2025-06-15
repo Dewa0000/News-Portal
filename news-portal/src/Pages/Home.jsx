@@ -43,7 +43,7 @@ const Home = () => {
           <p>Loading...</p>
         ) : (
           blogs.map((blog) => (
-            <NewsCard key={blog._id} blog={blog} />
+            <NewsCard key={blog._id} blog={blog} onDelete = {handleDelete} />
           ))
         )}
       </div>
