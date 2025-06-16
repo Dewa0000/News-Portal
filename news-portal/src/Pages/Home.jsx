@@ -6,8 +6,12 @@ import NewsCard from "../Components/NewsCard";
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isAdmin,setIsAdmin] = useState(true);
 
   useEffect(() => {
+
+    const adminStatus = localStorage.getItem("isAdmin") === "true";
+    setIsAdmin(adminStatus);
     fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs`)
       .then((res) => res.json())
       .then((data) => {
