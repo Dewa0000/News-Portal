@@ -48,15 +48,19 @@ router.delete("/blogs/:id", async (req, res) => {
 // Serve static HTML files
   
 
-router.get("/blogs", (req,res) => {
-  Blog.find()
-  .then((result) => {
-    res.json({blog: result})
-    console.log(result)
-  }).catch((err) => {
-    console.log(err.message)
-  })
-})
+router.get("/blogs", async (req, res) => {
+  const { category } = req.query;
+
+  try {
+    const filter = category ? { category: category.toLowerCase() } : {};
+    const blogs = await Blog.find(filter);
+    res.json({ blog: blogs });
+  } catch (err) {
+    console.error("Error fetching blogs:", err.message);
+    res.status(500).json({ error: "Failed to fetch blogs" });
+  }
+});
+
 
 
 module.exports = router;

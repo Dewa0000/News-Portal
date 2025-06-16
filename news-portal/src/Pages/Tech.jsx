@@ -17,7 +17,7 @@ const Tech = () => {
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {techBlogs.map((blog) => (
-            <NewsCard key={blog._id} blog={blog} isAdmin={false} onDelete={() => {}} />
+            <NewsCard key={blog._id} blog={blog} isAdmin={false} onDelete={() => { }} />
           ))}
         </div>
       )}
