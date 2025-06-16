@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NewsCard = ({ blog }) => {
+const NewsCard = ({ blog,isAdmin }) => {
   if (!blog) return null;
 
   const { _id, title, snippet } = blog;
