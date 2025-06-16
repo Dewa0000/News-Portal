@@ -33,6 +33,9 @@ const BlogDetails = () => {
         ) : blog ? (
           <div>
             <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+            <p className="text-gray-500 text-sm">
+              Published on {new Date(blog.createdAt).toLocaleDateString()}
+            </p>
             <p className="text-gray-600 italic mb-6">{blog.snippet}</p>
             <div className="text-lg text-gray-800 whitespace-pre-line">{blog.body}</div>
           </div>
