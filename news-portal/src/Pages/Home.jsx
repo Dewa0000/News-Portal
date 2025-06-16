@@ -6,7 +6,7 @@ import NewsCard from "../Components/NewsCard";
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isAdmin,setIsAdmin] = useState(true);
+  const [isAdmin,setIsAdmin] = useState(false);
 
   useEffect(() => {
 
