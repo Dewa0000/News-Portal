@@ -43,7 +43,7 @@ const SearchResults = () => {
             <NewsCard
               key={blog._id}
               blog={blog}
-              isAdmin={true}
+              isAdmin={false}
               onDelete={() => {}}
             />
           ))}
