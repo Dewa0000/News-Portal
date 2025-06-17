@@ -4,7 +4,7 @@ import Header from "../Components/Header";
 
 const Books = () => {
    
-    const {news: {bookNews}, loading} = useFetchNews("books")
+    const {news: bookNews, loading} = useFetchNews("books")
 
 
 
@@ -12,11 +12,13 @@ const Books = () => {
          <div>
             <Header/>
             {loading ? 
-            <p>Loading...</p> : 
-            <div>{
-                bookNews
-         </div>
-    )
-}
+            <p className="text-center">Loading...</p> : 
+               bookNews.length === 0 ? 
+            <p className="font-bold">No Books Blog Found</p> : 
+            <div>
+                <NewsCard blog={bookNews} key={bookNews._id}/>
+            </div> }
+          </div>
 
+    )}
 export default Books;
