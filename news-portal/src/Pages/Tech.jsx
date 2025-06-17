@@ -8,8 +8,6 @@ const Tech = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <Header />
-      <h1 className="text-4xl font-bold text-center text-gray-900 mb-6">🚀 Latest Tech Blogs</h1>
-
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : techBlogs.length === 0 ? (
