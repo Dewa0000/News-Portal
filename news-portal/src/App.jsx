@@ -9,6 +9,7 @@ import BlogDetails from "./Pages/Details";
 import "./App.css";
 import { useEffect, useState } from "react";
 import AddBlog from "./Pages/Addblog";
+import Books from "./Pages/Books";
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
             <Route path="/search" element={<SearchResults />} />
             <Route path="/add-blog" element={<AddBlog/>}/>
              <Route path="/blogs/:id" element={<BlogDetails />} />
+             <Route path="/books" element = {<Books/>}/>
           </Routes>
 
          
