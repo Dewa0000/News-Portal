@@ -11,6 +11,10 @@ const Books = () => {
     return (
          <div>
             <Header/>
+            {loading ? 
+            <p>Loading...</p> : 
+            <div>{
+                bookNews.map((item) => {item.body})}</div>}
          </div>
     )
 }
