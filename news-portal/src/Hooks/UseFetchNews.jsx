@@ -20,6 +20,7 @@ const useFetchNews = (category) => {
           : data.blog;
 
         setNews(filtered);
+        console.log(news);
       } catch (error) {
         console.error("Error fetching news:", error);
       }

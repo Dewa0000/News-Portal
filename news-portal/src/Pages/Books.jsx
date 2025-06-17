@@ -14,7 +14,7 @@ const Books = () => {
             {loading ? 
             <p>Loading...</p> : 
             <div>{
-                bookNews.map((item) => {item.body})}</div>}
+                bookNews
          </div>
     )
 }
