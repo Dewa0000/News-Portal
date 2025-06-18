@@ -15,8 +15,10 @@ const Books = () => {
             <p className="text-center">Loading...</p> : 
                bookNews.length === 0 ? 
             <p className="font-bold">No Books Blog Found</p> : 
-            <div>
-                <NewsCard blog={bookNews} key={bookNews._id}/>
+            <div>{bookNews.map((item) => {
+                 <NewsCard blog={item} key={bookNews._id}/>
+            })}
+                
             </div> }
           </div>
 
