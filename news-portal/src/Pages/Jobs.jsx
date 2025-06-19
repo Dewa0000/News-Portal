@@ -13,7 +13,7 @@ const Jobs = () => {
                  (<p className="text-center">Loading...</p>) : 
                  jobRoles.length === 0 ? 
                  (<p>No Job Role Found</p>) :
-                 (<div>
+                 (<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {jobRoles.map((item) => {
                     return <NewsCard blog={item} key={item._id}/>
                  })}

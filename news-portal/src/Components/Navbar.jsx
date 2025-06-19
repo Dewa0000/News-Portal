@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#24A3B5] text-white p-4 shadow-lg">
-      <div className="container mx-auto flex justify-between">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between">
         <Link to="/" className="text-xl flex items-center font-inter"><img src={logo} className="h-10 w-auto object-contain mr-4 rounded-lg"></img><span className="font-inter">H&H</span></Link>
         <div  className="flex items-center space-x-4">
           <div className="searchContainer flex">
