@@ -10,9 +10,10 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import AddBlog from "./Pages/Addblog";
 import Books from "./Pages/Books";
+import Jobs from "./Pages/Jobs";
 
 function App() {
-  
+
 
   return (
     <Router>
@@ -24,12 +25,11 @@ function App() {
             <Route path="/tech" element={<Tech />} />
             <Route path="/startups" element={<Startups />} />
             <Route path="/search" element={<SearchResults />} />
-            <Route path="/add-blog" element={<AddBlog/>}/>
-             <Route path="/blogs/:id" element={<BlogDetails />} />
-             <Route path="/books" element = {<Books/>}/>
+            <Route path="/add-blog" element={<AddBlog />} />
+            <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/jobs" element={<Jobs />} />
           </Routes>
-
-         
         </div>
         <Footer />
       </div>

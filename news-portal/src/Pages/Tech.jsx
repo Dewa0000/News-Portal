@@ -6,7 +6,7 @@ const Tech = () => {
   const { news: techBlogs, loading } = useFetchNews("tech");
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gray-100 p-8 gap-6">
       <Header />
       {loading ? (
         <p className="text-center">Loading...</p>
