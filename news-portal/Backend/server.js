@@ -89,7 +89,8 @@ const cors = require("cors");
 
 
 const blogsRoutes = require("./Routes/UserRoutes");
-const Blog = require("./Models/Article");
+
+
 
 const app = express();
 
@@ -124,6 +125,7 @@ app.use(blogsRoutes);
 app.post("/add-blog", (req, res) => {
   console.log(req.body);
 })
+
 
 
 app.get("/", (req, res) => {

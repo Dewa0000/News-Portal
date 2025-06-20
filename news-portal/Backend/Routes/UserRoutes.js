@@ -1,5 +1,6 @@
 const express = require("express");
-const Blog = require("../Models/Article")
+const Blog = require("../Models/Article");
+const User = require("../Models/User");
 const router = express.Router();
 
 //Login route
@@ -9,6 +10,14 @@ router.post("/login", async (req,res) => {
 
 //Signup route
 router.post("/signup", async (req,res) => {
+      const {email,password} = req.body;
+
+      try{
+          const user = await User.signup(email,password);
+          res.status(200).json({email,user});
+      }catch(error){
+          res.status(400).json({error: error.msg})
+      }
       res.json({msg: "signup User"})
 })
 
