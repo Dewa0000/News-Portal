@@ -2,6 +2,16 @@ const express = require("express");
 const Blog = require("../Models/Article")
 const router = express.Router();
 
+//Login route
+router.post("/login", async (req,res) => {
+      res.json({msg: "login User"})
+})
+
+//Signup route
+router.post("/signup", async (req,res) => {
+      res.json({msg: "signup User"})
+})
+
 router.post("/add-blog", async (req, res) => {
   const { title, snippet, body, category } = req.body;
 
