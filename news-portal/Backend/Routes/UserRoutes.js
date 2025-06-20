@@ -18,7 +18,6 @@ router.post("/signup", async (req,res) => {
       }catch(error){
           res.status(400).json({error: error.message})
       }
-      res.json({msg: "signup User"})
 })
 
 router.post("/add-blog", async (req, res) => {
