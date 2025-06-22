@@ -107,6 +107,8 @@ const Navbar = () => {
             <Link to="/jobs" onClick={() => setMenuOpen(false)} className="block">Jobs</Link>
             <Link to="/books" onClick={() => setMenuOpen(false)} className="block">Books</Link>
             <Link to="/add-blog" onClick={() => setMenuOpen(false)} className="block">Add Blog</Link>
+            <Link to="/login" onClick={() => setMenuOpen(false)} className="block">Login</Link>
+            <Link to="/signup" onClick={() => setMenuOpen(false)} className="block">Signup</Link>
           </div>
         )}
       </div>
