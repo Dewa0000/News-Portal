@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import AddBlog from "./Pages/Addblog";
 import Books from "./Pages/Books";
 import Jobs from "./Pages/Jobs";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="/books" element={<Books />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/signup" element = {<Signup/>}/>
           </Routes>
         </div>
         <Footer />
