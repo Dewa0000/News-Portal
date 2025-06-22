@@ -6,16 +6,26 @@ function AddBlog() {
   const [body, setBody] = useState("");
   const [category, setCategory] = useState("");
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccess(false);
+    setError("");
+
+    const token = localStorage.getItem("token"); // 🟢 Fetch token from localStorage
+
+    if (!token) {
+      setError("You must be logged in to post a blog.");
+      return;
+    }
 
     try {
       const response = await fetch("https://news-portal-jzcd.onrender.com/add-blog", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}` // 🔒 Send token
         },
         body: JSON.stringify({ title, snippet, body, category }),
       });
@@ -27,19 +37,24 @@ function AddBlog() {
         setCategory("");
         setSuccess(true);
       } else {
-        throw new Error("Blog creation failed");
+        const data = await response.json();
+        throw new Error(data.error || "Blog creation failed");
       }
     } catch (error) {
       console.error("Error:", error.message);
+      setError(error.message);
     }
   };
 
   return (
     <div className="max-w-xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-4">Add New Blog</h2>
+
       {success && (
         <div className="text-green-600 mb-3">Blog posted successfully!</div>
       )}
+      {error && <div className="text-red-600 mb-3">{error}</div>}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -65,12 +80,14 @@ function AddBlog() {
           onChange={(e) => setBody(e.target.value)}
           required
         />
-        <input type="text"
-         placeholder="Category"
-         className="w-full p-2 border border-gray-300 rounded"
-         value={category}
-         onChange={(e) => setCategory(e.target.value)}
-         required/>
+        <input
+          type="text"
+          placeholder="Category"
+          className="w-full p-2 border border-gray-300 rounded"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        />
         <button
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
