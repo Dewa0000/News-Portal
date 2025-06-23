@@ -14,13 +14,13 @@ const useFetchNews = (category) => {
         const response = await fetch(`${backendUrl}/blogs`);
         const data = await response.json();
 
-        const blogList = Array.isArray(data.blog) ? data.blog : [];
+        const blogList = Array.isArray(data.blogs) ? data.blogs : [];
 
         const filtered = category
           ? blogList.filter(
-              (item) =>
-                item.category?.toLowerCase() === category.toLowerCase()
-            )
+            (item) =>
+              item.category?.toLowerCase() === category.toLowerCase()
+          )
           : blogList;
 
         setNews(filtered);
