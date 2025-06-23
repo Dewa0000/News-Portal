@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 function AddBlog() {
   const [title, setTitle] = useState("");
@@ -8,37 +9,61 @@ function AddBlog() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
+  const { id } = useParams(); // 🧠 blog ID (if editing)
+  const navigate = useNavigate();
+
+  // 📌 Fetch existing blog if editing
+  useEffect(() => {
+    if (id) {
+      fetch(`https://news-portal-jzcd.onrender.com/blogs/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          const blog = data.blog;
+          setTitle(blog.title);
+          setSnippet(blog.snippet);
+          setBody(blog.body);
+          setCategory(blog.category);
+        })
+        .catch((err) => {
+          console.error("Failed to load blog:", err.message);
+          setError("Failed to fetch blog for editing.");
+        });
+    }
+  }, [id]);
+
+  // 🔁 Handles both Create & Update
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccess(false);
     setError("");
 
-    const token = localStorage.getItem("token"); // 🟢 Fetch token from localStorage
-
+    const token = localStorage.getItem("token");
     if (!token) {
-      setError("You must be logged in to post a blog.");
+      setError("You must be logged in to post or update a blog.");
       return;
     }
 
     try {
-      const response = await fetch("https://news-portal-jzcd.onrender.com/add-blog", {
-        method: "POST",
+      const method = id ? "PUT" : "POST";
+      const url = id
+        ? `https://news-portal-jzcd.onrender.com/blogs/${id}`
+        : "https://news-portal-jzcd.onrender.com/add-blog";
+
+      const response = await fetch(url, {
+        method,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}` // 🔒 Send token
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify({ title, snippet, body, category }),
       });
 
       if (response.ok) {
-        setTitle("");
-        setSnippet("");
-        setBody("");
-        setCategory("");
         setSuccess(true);
+        navigate("/"); // ✅ redirect to homepage after submit
       } else {
         const data = await response.json();
-        throw new Error(data.error || "Blog creation failed");
+        throw new Error(data.error || "Blog action failed");
       }
     } catch (error) {
       console.error("Error:", error.message);
@@ -48,10 +73,12 @@ function AddBlog() {
 
   return (
     <div className="max-w-xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Add New Blog</h2>
+      <h2 className="text-2xl font-bold mb-4">{id ? "Edit Blog" : "Add New Blog"}</h2>
 
       {success && (
-        <div className="text-green-600 mb-3">Blog posted successfully!</div>
+        <div className="text-green-600 mb-3">
+          Blog {id ? "updated" : "posted"} successfully!
+        </div>
       )}
       {error && <div className="text-red-600 mb-3">{error}</div>}
 
@@ -92,7 +119,7 @@ function AddBlog() {
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
-          Submit
+          {id ? "Update Blog" : "Submit"}
         </button>
       </form>
     </div>
