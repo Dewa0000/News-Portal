@@ -6,23 +6,27 @@ const useFetchNews = (category) => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://your-render-backend-url.onrender.com";
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL ||
+        "https://your-render-backend-url.onrender.com";
 
       try {
         const response = await fetch(`${backendUrl}/blogs`);
         const data = await response.json();
 
+        const blogList = Array.isArray(data.blog) ? data.blog : [];
+
         const filtered = category
-          ? data.blog.filter(
+          ? blogList.filter(
               (item) =>
                 item.category?.toLowerCase() === category.toLowerCase()
             )
-          : data.blog;
+          : blogList;
 
         setNews(filtered);
-        console.log(news);
       } catch (error) {
         console.error("Error fetching news:", error);
+        setNews([]); // fallback
       }
       setLoading(false);
     };
