@@ -9,6 +9,7 @@ const EditBlog = () => {
     snippet: "",
     body: "",
     category: "",
+    imageURL: ""
   });
 
   // Fetch the existing blog data
@@ -87,6 +88,15 @@ const EditBlog = () => {
           onChange={handleChange}
           className="w-full mb-4 p-2 border rounded"
         />
+        <input
+          type="text"
+          name="imageURL"
+          placeholder="Image URL"
+          value={form.imageURL}
+          onChange={handleChange}
+          className="w-full mb-4 p-2 border rounded"
+        />
+
         <button
           type="submit"
           className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
