@@ -38,10 +38,10 @@ router.post("/signup", async (req, res) => {
 
 // ✅ ADD BLOG
 router.post("/add-blog", async (req, res) => {
-  const { title, snippet, body, category } = req.body;
+  const { title, snippet, body, category,imageURL } = req.body;
 
   try {
-    const blog = new Blog({ title, snippet, body, category: category.toLowerCase() });
+    const blog = new Blog({ title, snippet, body, category: category.toLowerCase(),imageURL });
     const savedBlog = await blog.save();
     res.status(201).json(savedBlog);
   } catch (error) {
@@ -65,12 +65,12 @@ router.get("/blogs/:id", async (req, res) => {
 // ✅ UPDATE BLOG BY ID
 router.put("/blogs/:id", async (req, res) => {
   const id = req.params.id;
-  const { title, snippet, body, category } = req.body;
+  const { title, snippet, body, category, imageURL } = req.body;
 
   try {
     const updatedBlog = await Blog.findByIdAndUpdate(
       id,
-      { title, snippet, body, category: category.toLowerCase() },
+      { title, snippet, body, category: category.toLowerCase(), imageURL },
       { new: true, runValidators: true }
     );
 

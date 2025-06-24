@@ -99,6 +99,13 @@ function AddBlog() {
           onChange={(e) => setSnippet(e.target.value)}
           required
         />
+        <input
+          type="text"
+          placeholder="Image URL"
+          value={imageURL}
+          onChange={(e) => setImageURL(e.target.value)}
+          className="w-full p-2 border border-gray-300 rounded"
+        />
         <textarea
           placeholder="Body"
           className="w-full p-2 border border-gray-300 rounded"

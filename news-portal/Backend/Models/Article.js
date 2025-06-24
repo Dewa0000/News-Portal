@@ -20,6 +20,9 @@ const blogSchema = new Schema({
     required: true,
     lowercase: true, // optional, ensures it's always stored in lowercase
   },
+  imageURL: {
+    type: String
+  }
 }, { timestamps: true });
 
 const Blog = mongoose.model("Blog", blogSchema);

@@ -37,6 +37,15 @@ const BlogDetails = () => {
               Published on {new Date(blog.createdAt).toLocaleDateString()}
             </p>
             <p className="text-gray-600 italic mb-6">{blog.snippet}</p>
+            {blog.imageURL && (
+              <img
+                src={blog.imageURL}
+                alt={blog.title}
+                loading="lazy"
+                className="rounded w-full mb-4"
+              />
+            )}
+
             <div className="text-lg text-gray-800 whitespace-pre-line">{blog.body}</div>
           </div>
         ) : (
