@@ -1,7 +1,3 @@
-const mongoose = require("mongoose");
-
-const Schema = mongoose.Schema;
-
 const blogSchema = new Schema({
   title: {
     type: String,
@@ -16,14 +12,15 @@ const blogSchema = new Schema({
     required: true,
   },
   category: {
-    type: String, // Example: "tech", "books", "lifestyle"
+    type: String,
     required: true,
-    lowercase: true, // optional, ensures it's always stored in lowercase
+    lowercase: true,
   },
   imageURL: {
     type: String
+  },
+  likes: {
+    type: Number,
+    default: 0, // ← Initializes every blog with 0 likes
   }
 }, { timestamps: true });
-
-const Blog = mongoose.model("Blog", blogSchema);
-module.exports = Blog;

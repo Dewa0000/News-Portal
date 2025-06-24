@@ -50,6 +50,25 @@ router.post("/add-blog", async (req, res) => {
   }
 });
 
+// 👍 LIKE A BLOG
+router.put("/blogs/:id/like", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const blog = await Blog.findById(id);
+    if (!blog) return res.status(404).json({ error: "Blog not found" });
+
+    blog.likes = blog.likes + 1;
+    await blog.save();
+
+    res.status(200).json({ message: "Blog liked!", likes: blog.likes });
+  } catch (error) {
+    console.error("Error liking blog:", error.message);
+    res.status(500).json({ error: "Failed to like blog" });
+  }
+});
+
+
 // ✅ GET A BLOG BY ID
 router.get("/blogs/:id", async (req, res) => {
   const id = req.params.id;
