@@ -1,3 +1,6 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
 const blogSchema = new Schema({
   title: {
     type: String,
@@ -21,6 +24,9 @@ const blogSchema = new Schema({
   },
   likes: {
     type: Number,
-    default: 0, // ← Initializes every blog with 0 likes
+    default: 0
   }
 }, { timestamps: true });
+
+const Blog = mongoose.model("Blog", blogSchema);
+module.exports = Blog;
