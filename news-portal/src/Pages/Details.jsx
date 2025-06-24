@@ -41,7 +41,7 @@ const BlogDetails = () => {
               <img
                 src={blog.imageURL}
                 alt={blog.title}
-                loading="lazy"
+                
                 className="rounded w-full mb-4"
               />
             )}
