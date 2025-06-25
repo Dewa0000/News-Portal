@@ -6,7 +6,6 @@ import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import SearchResults from "./Components/searchResults";
 import BlogDetails from "./Pages/Details";
-import "./App.css";
 import { useEffect, useState } from "react";
 import AddBlog from "./Pages/Addblog";
 import Books from "./Pages/Books";
