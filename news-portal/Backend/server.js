@@ -36,7 +36,7 @@ app.use((req, res) => {
 });
 
 // ------------------- DB CONNECT -------------------
-const dbURI = process.env.MONGO_URI || "mongodb+srv://Dewa0000:Dewa%400000@news-portal.lviixrc.mongodb.net/newsportal?retryWrites=true&w=majority";
+const dbURI = process.env.MONGO_URI;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
