@@ -5,6 +5,7 @@ function AddBlog() {
   const [title, setTitle] = useState("");
   const [snippet, setSnippet] = useState("");
   const [body, setBody] = useState("");
+  const [imageURL, setImageURL] = useState("");
   const [category, setCategory] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -55,7 +56,7 @@ function AddBlog() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ title, snippet, body, category }),
+        body: JSON.stringify({ title, snippet, body, category, imageURL }),
       });
 
       if (response.ok) {
