@@ -80,6 +80,8 @@ const Navbar = () => {
             <Link to="/jobs" className="hover:text-gray-200">Jobs</Link>
             <Link to="/books" className="hover:text-gray-200">Books</Link>
             <Link to="/add-blog" className="hover:text-gray-200">Add Blog</Link>
+            <Link to="/Movies" className="hover:text-gray-200">Movies</Link>
+            <Link to="/add-blog" className="hover:text-gray-200">Add Blog</Link>
             <Link to="/login"  className="block">Login</Link>
             <Link to="/signup"  className="block">Signup</Link>
           </div>
